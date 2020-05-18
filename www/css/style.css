@@ -21,12 +21,13 @@ body {
 
 .logo {
   width: 120px;
-
   margin: 70px 0;
 }
 
 header p {
   font-size: 14px;
+  
+  
 }
 
 body {
@@ -46,6 +47,7 @@ header,
 main,
 footer {
   text-align: center;
+  
 }
 
 /*header*/
@@ -53,11 +55,7 @@ footer {
 .botoes {
   display: grid;
   width: 150px;
-  margin-left: 180px;
-  
-
-  
-  
+  margin-left: 90px;
 }
 
 header button {
@@ -80,8 +78,6 @@ main {
   width: 90%;
   max-width: 500px;
 }
-
-
 
 header h1,
 main h2 {
@@ -106,6 +102,22 @@ section.form {
   background-color: #ff4f4f;
   padding: 16px 64px;
   border-radius: 6px;
+}
+section#formTreino {
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 45px;
+  align-items: center;
+  background-color: #ff4f4f;
+  padding: 16px 64px;
+  border-radius: 6px;
+  margin: 0 auto 70px;
+  width:200%;
+  max-width: 500px;
+  
+  
+  
+
 }
 
 form input,
@@ -181,3 +193,7 @@ section.form.hide {
   height: 0;
   margin-top: -70px;
 }
+
+
+  
+  
