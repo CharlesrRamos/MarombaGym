@@ -18,8 +18,8 @@
     under the License.
 -->
 <html>
-    <head>
-        <!--
+  <head>
+    <!--
         Customize this policy to fit your own app's needs. For more guidance, see:
             https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
         Some notes:
@@ -28,22 +28,77 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
-    </head>
-    <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta
+      name="viewport"
+      content="initial-scale=1, width=device-width, viewport-fit=cover"
+    />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <title>Academia</title>
+  </head>
+  <body>
+    <header>
+      <img class="logo" src="./img/logogym.jpg" alt="Imagen da Academia" />
+
+      <h2>Maromba GYM</h2>
+
+      <p>Bem vindo a academia Maromba GYM</p>
+
+      <button>Calculo IMC</button>
+    </header>
+    <section class="form hide">
+      <h2>Entre com os dados</h2>
+
+      <form action="/">
+        <input type="text" name="name" placeholder="Nome completo" />
+
+        <input type="text" name="Peso" placeholder="Peso" />
+
+        <input type="text" name="Altura" placeholder="Altura" />
+
+        <button>Calcular</button>
+      </form>
+    </section>
+
+    <main>
+      <h2>Útimos <spna> Alunos</spna></h2>
+
+      <section class="donors">
+        <div class="donor">
+          <div class="blood">IMC</div>
+          <p>Diego Fernandes</p>
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-    </body>
+        <div class="donor">
+          <div class="blood">IMC</div>
+          <p>Diego Fernandes</p>
+        </div>
+
+        <div class="donor">
+          <div class="blood">IMC</div>
+          <p>Diego Fernandes</p>
+        </div>
+
+        <div class="donor">
+          <div class="blood">IMC</div>
+          <p>Diego Fernandes</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      MarombaGym Fitness
+    </footer>
+
+    <script src="js/scripts.js"></script>
+  </body>
 </html>
