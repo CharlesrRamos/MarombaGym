@@ -40,11 +40,31 @@
 
       <p>Bem vindo a academia Maromba GYM</p>
 
-      <div class="container align-items-center">
-        <button class="btn btn-danger" id="bt1">Calculo IMC</button>
-        <button class="btn btn-danger" id="bt2">Selecione o Treino</button>
-        <button class="btn btn-danger">Ver relatorio</button>
+      
+        <div class="container align-items-center">
+          
+        
+        <div class="dropdown">
+          <button class="btn btn-danger" id="bt1">Calculo IMC</button>
+
+          <button class="btn btn-danger dropdown-toggle"  type="button" 
+          id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" 
+          aria-expanded="false">
+            Treinos
+          </button>
+          <button class="btn btn-danger" id="bt5">Gasto Calorico</button>
+          <button class="btn btn-danger" id="bt5">Ver Relatório</button>
+          
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" id="bt2" href="#">Treino A</a>
+            <a class="dropdown-item" id="bt3" href="#">Treino B</a>
+            <a class="dropdown-item" id="bt4" href="#">Treino C</a>
+            
+          </div>
+        </div>   
+        
       </div>
+    
     </header>
 
     <div class="container" ng-app="myApp" ng-controller="myCtrl">
@@ -69,16 +89,104 @@
       </section>
     </div>
     <!-- Selecione treino  -->
-    <section class="form2 hide">
-      <h2>eefkasidjsaka os dados</h2>
-      <form>
-        <input type="number" name="peso" placeholder="Peso" />
-
-        <input type="number" name="tr" placeholder="Altura" />
-
-        <button type="submit" ng-click="calculoIMC()">Calcular</button>
-      </form>
+    <section class="selTreino hide">
+      <div class="listas">
+      <ul>
+        <li>Agachamento 5 X 8-10 reps</li>
+        <li>Leg Press 4 X 8-10 reps</li>
+        <li>Extensora 3 X 8-10 reps </li>
+        <li>Stiff 4 X 8-10 reps</li>
+        </ul>
+      </div>
+      <div class="listas">
+          <ul>
+          <li>Mesa flexora 3 X 8-10 reps</li>
+          <li>Extensora lombar 3 X 8-10 reps</li>
+          <li>Extensora 3 X 8-10 reps </li>
+          <li>Panturrilha 4 X 8-10 reps</li>
+          </ul>
+          </div>
+        <button class="btList" type="submit" ng-click="calculoIMC()">Fazer</button>
+      
     </section>
+    <section class="selTreinoB hide">
+      <div class="listas">
+      <ul>
+        <li>Supino – 5 X 8-10 reps </li>
+        <li>Supino inclinado halteres – 4 X 8-10 reps</li>
+        <li>Peck deck fly – 3 X 8-10 reps</li>
+        <li>Desenvolvimento – 4 X 8-10 reps</li>
+      </ul>
+      </div>
+      <div class="listas">
+          <ul>
+          <li>Elevação lateral – 3 X 8-10 reps </li>
+          <li>Mergulho – 4 X 8-10 reps</li>
+          <li>Tríceps corda – 3 X 8-10 reps </li>
+          <li>Tríceps coice – 3 X 8-10 reps</li>
+          <li>Esteira 30 minutos</li>
+          </ul>
+          </div>
+        <button class="btList" type="submit" ng-click="calculoIMC()">Fazer</button>
+     
+      
+    </section>
+    <section class="selTreinoC hide">
+      <div class="listas">
+      
+      <ul>
+        <li>Barra fixa ou graviton 5 X 8-10 reps </li>
+        <li>Remada baixa no triângulo 4 X 8-10 reps </li>
+        <li>Puxada alta 3 X 8-10 reps </li>
+        <li>Rosca alternada 4 X 8-10 reps</li>
+        
+      </ul>
+    </div>
+      <div class="listas">
+          <ul>
+          <li>Rosca direta no cabo 3 X 8-10 reps </li>
+          <li>Abdominal crunch máquina 3 X 8-10 reps s</li>
+          <li>Abdominal oblíquo máquina 3 X 8-10 reps </li>
+          <li>Bike 20 minutos</li>
+          </ul>
+
+        
+        </div>
+      
+
+      <button class="btList" type="submit" ng-click="">Fazer</button>
+    </section>
+
+
+    <!-- teste do calculo calorico -->
+    <div class="container" ng-app="myApp2" ng-controller="myCtrl2">
+   
+      <section class="form ">
+        <h2>Entre com os dados</h2>
+
+        <form>
+          <select ng-model="select">
+            <option value="treinoA">Treino A</option>
+            <option value="treinoB">Treino B</option>
+            <option value="treinoC">Treino C</option>
+    
+        </select>
+          <input type="number" name="peso" ng-model="peso" placeholder="Peso" />
+          <input type="number" name="tempo" ng-model="tempo" placeholder="Tempo de treino" />
+
+          
+
+          <p>Resultado: <b>{{caloriaGasta}}</b></p>
+
+          <button type="submit" ng-click="calculoCal()">Calcular</button>
+        </form>
+      </section>
+    </div>
+
+
+    <!-- fim dele -->
+
+    
     <script src="js/imc.js"></script>
     <script src="js/selecionetreino.js"></script>
 
