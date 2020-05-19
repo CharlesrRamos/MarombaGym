@@ -21,11 +21,23 @@ angular.module("myApp", [])
 });
 // fim imc
 
+// Fnções esconde esconde kk ------------------------->
+
 document.getElementById("bt1").addEventListener("click", function () {
   document.querySelector(".form").classList.toggle("hide");  
 });
 
 document.getElementById("bt2").addEventListener("click", function () {
-document.querySelector(".form2").classList.toggle("hide");
+document.querySelector(".selTreino").classList.toggle("hide");
 });
+
+document.getElementById("bt3").addEventListener("click", function () {
+  document.querySelector(".selTreinoB").classList.toggle("hide");
+  });
+
+ document.getElementById("bt4").addEventListener("click", function () {
+    document.querySelector(".selTreinoC").classList.toggle("hide");
+    });
+
+    // Fim delas ---------------------------------------->
 

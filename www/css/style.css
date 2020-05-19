@@ -48,12 +48,12 @@ footer {
 }
 
 /*header*/
-
+/* 
 .botoes {
-  display: grid;
+  display: inline;
   width: 150px;
   margin-left: 90px;
-}
+} */
 
 header button {
   margin-top: 16px;
@@ -67,7 +67,9 @@ header button {
 
 header,
 .form,
-.form2,
+.selTreinoB,
+.selTreino,
+.selTreinoC,
 main {
   margin: 0 auto 70px;
 
@@ -87,14 +89,17 @@ main h2 span {
 }
 
 .form,
-.form2 h2 {
+.selTreinoB,
+.selTreino,
+.selTreinoC h2 {
   text-align: right;
   color: #ffffffee;
   font-size: 18px;
 }
 
 section .form,
-.form2 {
+.selTreinoB, .selTreino,
+.selTreinoC {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 45px;
@@ -168,12 +173,12 @@ footer {
 /* func com JS*/
 
 section .form,
-.form2 {
+.selTreinoB, .selTreino,.selTreinoC {
   transition: all 300ms;
 }
 
 section.form.hide,
-.form2.hide {
+.selTreinoB.hide, .selTreino.hide, .selTreinoC.hide {
   opacity: 0;
   visibility: hidden;
   height: 0;
@@ -186,10 +191,46 @@ section.form.hide,
   font-size: 18px;
 }
 
-.form2 h2 {
+.selTreinoB h2 {
   text-align: right;
   color: #ffffffee;
   font-size: 18px;
+}
+
+.selTreino{
+  text-align: right;
+  color: #ffffffee;
+  font-size: 18px;
+}
+.selTreinoC{
+
+  text-align: right;
+  color: #ffffffee;
+  font-size: 18px;
+}
+
+section.selTreinoC{
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 45px;
+  align-items: center;
+  background-color: #ff4f4f;
+  padding: 16px 64px;
+  border-radius: 6px;
+
+}
+
+section.selTreino {
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 45px;
+  align-items: center;
+  background-color: #ff4f4f;
+  padding: 16px 64px;
+  border-radius: 6px;
+
 }
 
 section.form {
@@ -201,7 +242,7 @@ section.form {
   padding: 16px 64px;
   border-radius: 6px;
 }
-section.form2 {
+section.selTreinoB {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 45px;
@@ -210,3 +251,22 @@ section.form2 {
   padding: 16px 64px;
   border-radius: 6px;
 }
+
+
+/* Listas de exercicios  */
+
+.btList{
+
+  width: 100%;
+  margin-bottom: 4px;
+  padding: 8px 16px;
+  border-radius: 4px; /* arredondamento*/
+  border: 1px #ffffff88 solid;
+  font-weight: bold;
+  margin-left: 100px;
+  
+}
+ .listas {
+   margin-left: -45px;
+ }
+
