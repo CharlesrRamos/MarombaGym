@@ -1,26 +1,36 @@
 <!DOCTYPE html>
-
-
-<html>
+<html ng-app="myApp">
   <head>
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"
-    />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-    <meta
-      name="viewport"
-      content="initial-scale=1, width=device-width, viewport-fit=cover"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Academia</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-
+    <!-- BOOTSTRAP -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <!-- FIM BOOTSTRAP -->
     <link
       href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
       rel="stylesheet"
     />
-    <title>Academia</title>
   </head>
   <body>
     <header>
@@ -30,56 +40,50 @@
 
       <p>Bem vindo a academia Maromba GYM</p>
 
-      <div class="botoes">
-        <button id="bt1">Calculo IMC</button>
-        <button id="bt2">Selecione o Treino</button>
-        <button class="bt3">Ver relatorio</button>
+      <div class="container align-items-center">
+        <button class="btn btn-danger" id="bt1">Calculo IMC</button>
+        <button class="btn btn-danger" id="bt2">Selecione o Treino</button>
+        <button class="btn btn-danger">Ver relatorio</button>
       </div>
-
     </header>
-    <section class="form hide">
-      <h2>Entre com os dados</h2>
 
-      <form action="/">
-        <input type="number" name="peso" ng-model="peso" placeholder="Peso" />
+    <div class="container" ng-app="myApp" ng-controller="myCtrl">
+      <!-- IMC -->
+      <section class="form hide">
+        <h2>Entre com os dados</h2>
 
-        <input
-          type="number"
-          name="altura"
-          ng-model="altura"
-          placeholder="Altura"
-        />
+        <form>
+          <input type="number" name="peso" ng-model="peso" placeholder="Peso" />
 
-        <button>Calcular</button>
+          <input
+            type="number"
+            name="altura"
+            ng-model="altura"
+            placeholder="Altura"
+          />
+
+          <p>Resultado: <b>{{msg}}</b></p>
+
+          <button type="submit" ng-click="calculoIMC()">Calcular</button>
+        </form>
+      </section>
+    </div>
+    <!-- Selecione treino  -->
+    <section class="form2 hide">
+      <h2>eefkasidjsaka os dados</h2>
+      <form>
+        <input type="number" name="peso" placeholder="Peso" />
+
+        <input type="number" name="tr" placeholder="Altura" />
+
+        <button type="submit" ng-click="calculoIMC()">Calcular</button>
       </form>
-      
     </section>
-
-    <section id="formTreino">
-      <h2>Entre com os dados</h2>
-
-      <form action="/">
-        <input type="number" name="peso" ng-model="peso" placeholder="Peso" />
-
-        <input
-          type="number"
-          name="altura"
-          ng-model="altura"
-          placeholder="Altura"
-        />
-
-        <button>Calcular</button>
-      </form>
-    </section style="display: none;">
-
-    
-
-    <main></main>
+    <script src="js/imc.js"></script>
+    <script src="js/selecionetreino.js"></script>
 
     <footer>
       MarombaGym Fitness
     </footer>
-
-    <script src="js/scripts.js"></script>
   </body>
 </html>
