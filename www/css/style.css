@@ -113,10 +113,10 @@ section .form,
 form input,
 form button {
   width: 100%;
-
   padding: 8px 16px;
   border-radius: 4px; /* arredondamento*/
   border: 1px #ffffff88 solid;
+  margin: 5px 0 5px 0;
 }
 
 form input {
@@ -149,9 +149,9 @@ main .donors {
   position: relative;
 }
 
-.donors p {
-  margin-top: 24px;
-  font-size: 14px;
+p {
+  margin-top: 14px;
+  font-size: 20px;
 }
 
 .blood::before {
