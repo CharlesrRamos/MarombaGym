@@ -41,7 +41,7 @@
       <p>Bem vindo a academia Maromba GYM</p>
 
       <div class="container align-items-center">
-        <div class="dropdown">
+        <div class="dropdown" ng-app="myApp" ng-controller="myCtrl">
           <button class="btn btn-danger" data-toggle="collapse" href="#imc">
             Calculo IMC
           </button>
@@ -59,7 +59,15 @@
           <button class="btn btn-danger" data-toggle="collapse" href="#calculo">
             Gasto Calorico
           </button>
-          <button class="btn btn-danger">Ver Relatório</button>
+          <button
+            class="btn btn-danger"
+            data-toggle="collapse"
+            href="#relatorio"
+            type="submit"
+            ng-click="relatorio()"
+          >
+            Ver Relatório
+          </button>
 
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" data-toggle="collapse" href="#treinoA"
@@ -190,22 +198,33 @@
           <h2>Entre com os dados</h2>
 
           <form>
-            <select ng-model="select">
+            <input
+              class="form-control"
+              name="nome"
+              ng-model="nome"
+              placeholder="Nome"
+            />
+            <select class="form-control" ng-model="select">
+              <option value="">Selecione um treino: </option>
               <option value="treinoA">Treino A</option>
               <option value="treinoB">Treino B</option>
               <option value="treinoC">Treino C</option>
             </select>
             <input
-              type="number"
+              class="form-control"
               name="peso"
               ng-model="pesoCal"
-              placeholder="Peso"
+              placeholder="Peso em kg"
+              maxlength="4"
+              onkeyup="somenteNumeros(this);"
             />
             <input
-              type="number"
+              class="form-control"
               name="tempo"
               ng-model="tempo"
-              placeholder="Tempo de treino"
+              placeholder="Tempo de treino em minutos"
+              maxlength="4"
+              onkeyup="somenteNumeros(this);"
             />
 
             <p>Kcal gastas: <b>{{caloriaGasta}} </b></p>
@@ -216,7 +235,27 @@
       </div>
     </div>
 
-    <!-- fim dele -->
+    <!-- Relatorio -->
+    <div class="collapse" id="relatorio" ng-app="myApp" ng-controller="myCtrl">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Data</th>
+            <th scope="col">Treino</th>
+            <th scope="col">Calorias gastas</th>
+            <th scope="col">Tempo total de treino</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">{{dataTable}}</th>
+            <td>{{treinoTable}}</td>
+            <td>{{caloriaGastaTable}}</td>
+            <td>{{tempoTotalTable}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <script src="js/imc.js"></script>
     <script>
