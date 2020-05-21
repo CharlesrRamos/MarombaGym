@@ -21,7 +21,6 @@ angular.module("myApp", [])
     $scope.msg = message;
   }
   $scope.msg = message;
-
   /**
    * Calculo calorias
    */
@@ -32,11 +31,11 @@ angular.module("myApp", [])
         bicicleta: 4.9
       }
       var caloriaGasta;
-      if ($scope.select == "treinoA") {
+      if ($scope.select == "treino A") {
         caloriaGasta = $scope.pesoCal * ($scope.tempo * caloriaPorExercicio.musculacao);
-      } else if ($scope.select == "treinoB") {
+      } else if ($scope.select == "treino B") {
         caloriaGasta = $scope.pesoCal * ($scope.tempo - 30) * caloriaPorExercicio.musculacao + (30 * caloriaPorExercicio.esteira); 
-      } else if ($scope.select == "treinoC") {
+      } else if ($scope.select == "treino C") {
         caloriaGasta = $scope.pesoCal * ($scope.tempo - 20) * caloriaPorExercicio.musculacao + (20 * caloriaPorExercicio.bicicleta);
       }
 
@@ -51,6 +50,13 @@ angular.module("myApp", [])
       };
 
       localStorage.setItem('dadosRelatorios', JSON.stringify(dadosRelatorios));
+      
+      var localIndex = localStorage.getItem('index');
+      
+      if(!localIndex){
+        localStorage.setItem('');
+      }
+      localStorage.setItem('index', '[0]');
 
     };
 
@@ -59,13 +65,10 @@ angular.module("myApp", [])
      */
     $scope.relatorio = function(){
       var local = JSON.parse(localStorage.getItem('dadosRelatorios'));
-      
-      console.log(JSON.stringify(local.data));
-      $scope.dataTable = JSON.stringify(local.data);
-      $scope.treinoTable = JSON.stringify(local.treinoUtilizado);
-      $scope.caloriaGastaTable = JSON.stringify(local.caloriasGastas);
-      $scope.tempoTotalTable = JSON.stringify(local.tempoTotal);
-      
+      dataTablet.innerHTML = JSON.stringify(local.data); 
+      treinoTablet.innerHTML = JSON.stringify(local.treinoUtilizado); 
+      caloriaGastaTablet.innerHTML = JSON.stringify(local.caloriasGastas); 
+      tempoTotalTablet.innerHTML = JSON.stringify(local.tempoTotal); 
     };
 });
 
