@@ -92,7 +92,6 @@ main h2 span {
 .selTreinoB,
 .selTreino,
 .selTreinoC h2 {
-  text-align: right;
   color: #ffffffee;
   font-size: 18px;
 }
@@ -237,9 +236,9 @@ section.form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 45px;
-  align-items: center;
+  align-items: left;
   background-color: #ff4f4f;
-  padding: 16px 64px;
+  padding: 10px 15px 10px 15px;
   border-radius: 6px;
 }
 section.selTreinoB {
@@ -254,15 +253,7 @@ section.selTreinoB {
 
 /* Listas de exercicios  */
 
-.btList {
-  width: 100%;
-  margin-bottom: 4px;
-  padding: 8px 16px;
-  border-radius: 4px; /* arredondamento*/
-  border: 1px #ffffff88 solid;
-  font-weight: bold;
-  margin-left: 100px;
-}
 .listas {
-  margin-left: -45px;
+  margin-left: -22px;
+  font-size: 15px;
 }

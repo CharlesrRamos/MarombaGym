@@ -44,7 +44,8 @@
         <button class="btn btn-danger" data-toggle="collapse" href="#calculo">
           Gasto Calorico
         </button>
-        <button class="btn btn-danger" data-toggle="collapse" href="#relatorio" type="submit" ng-click="relatorio()">
+        <button class="btn btn-danger" data-toggle="collapse" href="#relatorioCollapse" type="submit"
+          ng-click="relatorio()">
           Ver Relatório
         </button>
 
@@ -86,23 +87,19 @@
     <section class="form">
       <div class="listas">
         <ul>
-          <li>Agachamento 5 X 8-10 reps</li>
-          <li>Leg Press 4 X 8-10 reps</li>
-          <li>Extensora 3 X 8-10 reps</li>
-          <li>Stiff 4 X 8-10 reps</li>
+          <li>Agachamento 5x8-10 reps</li>
+          <li>Leg Press 4x8-10 reps</li>
+          <li>Extensora 3x8-10 reps</li>
+          <li>Stiff 4x8-10 reps</li>
         </ul>
       </div>
       <div class="listas">
         <ul>
-          <li>Mesa flexora 3 X 8-10 reps</li>
-          <li>Extensora lombar 3 X 8-10 reps</li>
-          <li>Extensora 3 X 8-10 reps</li>
-          <li>Panturrilha 4 X 8-10 reps</li>
+          <li>Mesa flexora 3x8-10 reps</li>
+          <li>Extensora 3x8-10 reps</li>
+          <li>Panturrilha 4x8-10 reps</li>
         </ul>
       </div>
-      <button class="btList" type="submit" ng-click="calculoIMC()">
-        Fazer
-      </button>
     </section>
   </div>
 
@@ -110,24 +107,21 @@
     <section class="form">
       <div class="listas">
         <ul>
-          <li>Supino – 5 X 8-10 reps</li>
-          <li>Supino inclinado halteres – 4 X 8-10 reps</li>
-          <li>Peck deck fly – 3 X 8-10 reps</li>
-          <li>Desenvolvimento – 4 X 8-10 reps</li>
+          <li>Supino 5x8-10 reps</li>
+          <li>Supino inclinado 4x8-10 reps</li>
+          <li>Peck deck fly 3x8-10 reps</li>
+          <li>Flexão 4x8-10 reps</li>
         </ul>
       </div>
       <div class="listas">
         <ul>
-          <li>Elevação lateral – 3 X 8-10 reps</li>
-          <li>Mergulho – 4 X 8-10 reps</li>
-          <li>Tríceps corda – 3 X 8-10 reps</li>
-          <li>Tríceps coice – 3 X 8-10 reps</li>
+          <li>Elevação lateral 3 X 8-10 reps</li>
+          <li>Mergulho 4 X 8-10 reps</li>
+          <li>Tríceps corda 3 X 8-10 reps</li>
+          <li>Tríceps coice 3 X 8-10 reps</li>
           <li>Esteira 30 minutos</li>
         </ul>
       </div>
-      <button class="btList" type="submit" ng-click="calculoIMC()">
-        Fazer
-      </button>
     </section>
   </div>
 
@@ -149,8 +143,6 @@
           <li>Bike 20 minutos</li>
         </ul>
       </div>
-
-      <button class="btList" type="submit" ng-click="">Fazer</button>
     </section>
   </div>
 
@@ -175,14 +167,14 @@
 
           <p>Kcal gastas: <b>{{caloriaGasta}} </b></p>
 
-          <button type="submit" ng-click="calculoCal()">Calcular</button>
+          <button type="submit" ng-click="calculoCaloria()">Calcular</button>
         </form>
       </section>
     </div>
   </div>
 
   <!-- Relatorio -->
-  <div class="collapse" id="relatorio" ng-app="myApp" ng-controller="myCtrl">
+  <div class="collapse" id="relatorioCollapse" ng-app="myApp" ng-controller="myCtrl">
     <section>
       <table class="table">
         <thead>
@@ -202,15 +194,6 @@
           </tr>
         </tbody>
       </table>
-    </section>
-  </div>
-
-  <div class="collapse" id="relatorio" ng-app="myApp" ng-controller="myCtrl">
-    <section class="table">
-      <table class="table">
-        <span></span>
-      </table>
-
     </section>
   </div>
 
