@@ -4,7 +4,7 @@ angular.module("myApp", [])
   /**
    * Calculo IMC
    */
-  var message = 'preencha os dados';
+  var message = 'Preencha os dados';
   $scope.calculoIMC = function () {
     var IMC = $scope.peso / ($scope.altura * $scope.altura);
     if (IMC < 18.5) {
@@ -24,39 +24,32 @@ angular.module("myApp", [])
   /**
    * Calculo calorias
    */
-    $scope.calculoCal = function () {
-      var caloriaPorExercicio = {
-        musculacao: 8.9,
-        esteira: 16,
-        bicicleta: 4.9
-      }
-      var caloriaGasta;
-      if ($scope.select == "treino A") {
-        caloriaGasta = $scope.pesoCal * ($scope.tempo * caloriaPorExercicio.musculacao);
-      } else if ($scope.select == "treino B") {
-        caloriaGasta = $scope.pesoCal * ($scope.tempo - 30) * caloriaPorExercicio.musculacao + (30 * caloriaPorExercicio.esteira); 
-      } else if ($scope.select == "treino C") {
-        caloriaGasta = $scope.pesoCal * ($scope.tempo - 20) * caloriaPorExercicio.musculacao + (20 * caloriaPorExercicio.bicicleta);
-      }
-
-      $scope.caloriaGasta = caloriaGasta;
-      var data = getDateNow();
-      var dadosRelatorios = {
-        nome: $scope.nome,
-        data: data,
-        caloriasGastas: caloriaGasta,
-        treinoUtilizado: $scope.select,
-        tempoTotal: $scope.tempo
-      };
-
-      localStorage.setItem('dadosRelatorios', JSON.stringify(dadosRelatorios));
-      
-      var localIndex = localStorage.getItem('index');
-      
-      if(!localIndex){
-        localStorage.setItem('');
-      }
-      localStorage.setItem('index', '[0]');
+  $scope.calculoCaloria = function () {
+    var caloriaPorExercicio = {
+      musculacao: 8.9,
+      esteira: 16,
+      bicicleta: 4.9
+    }
+    var caloriaGasta;
+    if ($scope.select == "treino A") {
+      caloriaGasta = $scope.pesoCal * ($scope.tempo * caloriaPorExercicio.musculacao);
+    } else if ($scope.select == "treino B") {
+      caloriaGasta = $scope.pesoCal * ($scope.tempo - 30) * caloriaPorExercicio.musculacao + (30 * caloriaPorExercicio.esteira); 
+    } else if ($scope.select == "treino C") {
+      caloriaGasta = $scope.pesoCal * ($scope.tempo - 20) * caloriaPorExercicio.musculacao + (20 * caloriaPorExercicio.bicicleta);
+    }
+    $scope.caloriaGasta = caloriaGasta;
+    
+    var data = getDateNow();
+    var dadosRelatorios = {
+      nome: $scope.nome,
+      data: data,
+      caloriasGastas: caloriaGasta,
+      treinoUtilizado: $scope.select,
+      tempoTotal: $scope.tempo
+    };
+    
+    setLocalStoraged(dadosRelatorios); 
 
     };
 
@@ -64,13 +57,33 @@ angular.module("myApp", [])
      * Relatorio
      */
     $scope.relatorio = function(){
-      var local = JSON.parse(localStorage.getItem('dadosRelatorios'));
-      dataTablet.innerHTML = JSON.stringify(local.data); 
-      treinoTablet.innerHTML = JSON.stringify(local.treinoUtilizado); 
-      caloriaGastaTablet.innerHTML = JSON.stringify(local.caloriasGastas); 
-      tempoTotalTablet.innerHTML = JSON.stringify(local.tempoTotal); 
+      var index = JSON.parse(localStorage.getItem('index'));
+      for(var i = 0; i < index.length; i++){
+        if(index != null){
+          var local = JSON.parse(localStorage.getItem(index[i]));
+          dataTablet.innerHTML = JSON.stringify(local.data); 
+          treinoTablet.innerHTML = JSON.stringify(local.treinoUtilizado); 
+          caloriaGastaTablet.innerHTML = JSON.stringify(local.caloriasGastas); 
+          tempoTotalTablet.innerHTML = JSON.stringify(local.tempoTotal); 
+        }
+      }
     };
 });
+
+function setLocalStoraged(dadosRelatorios){
+  var localIndex = JSON.parse(localStorage.getItem('index'));
+  var novo;
+  if(localIndex == null) {
+    localStorage.setItem('index', '[0]');
+    novo = 0;
+  } else {
+    novo = localIndex.length;
+    localIndex.push(novo);
+    localStorage.setItem('index', JSON.stringify(localIndex));
+  }
+  localStorage.setItem(novo, JSON.stringify(dadosRelatorios));
+  return novo;
+}
 
 function getDateNow(){
   var currentdate = new Date(); 
