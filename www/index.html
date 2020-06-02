@@ -18,17 +18,15 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
   <!-- FIM BOOTSTRAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
 
 </head>
 
 <body>
   <header>
-
     <img class="logo" src="./img/logogym.jpg" alt="Imagen da Academia" />
-
     <h2>Maromba GYM</h2>
-
     <p>Bem vindo a academia Maromba GYM</p>
 
     <div class="container align-items-center">
@@ -67,13 +65,12 @@
         </div>
         <div>
           <form>
-            <input name="peso" ng-model="peso" placeholder="Peso exemplo: 60.5" maxlength="4"
-              onkeyup="somenteNumeros(this);" />
+            <input name="peso" ng-model="peso" placeholder="Peso" maxlength="4" onkeypress="$(this).mask('900.0')" />
 
-            <input name="altura" ng-model="altura" placeholder="Altura exemplo: 1.75" maxlength="4"
-              onkeyup="somenteNumeros(this);" />
+            <input name="altura" ng-model="altura" placeholder="Altura" maxlength="4"
+              onkeypress="$(this).mask('9.00')" />
 
-            <p>Resultado: <b>{{msg}}</b></p>
+            <p>Resultado: {{msg}}</p>
 
             <button type="submit" ng-click="calculoIMC()">Calcular</button>
           </form>
@@ -150,63 +147,46 @@
   <div class="container" ng-app="myApp" ng-controller="myCtrl">
     <div class="collapse" id="calculo">
       <section class="form">
-        <h2>Entre com os dados</h2>
-
-        <form>
-          <input class="form-control" name="nome" ng-model="nome" placeholder="Nome" />
-          <select class="form-control" ng-model="select">
-            <option value="">Selecione um treino: </option>
-            <option value="treinoA">Treino A</option>
-            <option value="treinoB">Treino B</option>
-            <option value="treinoC">Treino C</option>
-          </select>
-          <input class="form-control" name="peso" ng-model="pesoCal" placeholder="Peso em kg" maxlength="4"
-            onkeyup="somenteNumeros(this);" />
-          <input class="form-control" name="tempo" ng-model="tempo" placeholder="Tempo de treino em minutos"
-            maxlength="4" onkeyup="somenteNumeros(this);" />
-
-          <p>Kcal gastas: <b>{{caloriaGasta}} </b></p>
-
-          <button type="submit" ng-click="calculoCaloria()">Calcular</button>
-        </form>
+        <div>
+          <h2>Entre com os dados</h2>
+        </div>
+        <div>
+          <form>
+            <input class="form-control" name="nome" ng-model="nome" placeholder="Nome" />
+            <select class="form-control" ng-model="select">
+              <option value="">Selecione um treino: </option>
+              <option value="treino A">Treino A</option>
+              <option value="treino B">Treino B</option>
+              <option value="treino C">Treino C</option>
+            </select>
+            <input class="form-control" name="peso" ng-model="pesoCal" placeholder="Peso em kg" maxlength="4" />
+            <input class="form-control" name="tempo" ng-model="tempo" placeholder="Tempo em minutos" maxlength="4" />
+            <p>Kcal gastas: {{caloriagasta}}</p>
+            <button type="submit" ng-click="calculoCaloria()">Calcular</button>
+          </form>
+        </div>
       </section>
     </div>
   </div>
 
   <!-- Relatorio -->
   <div class="collapse" id="relatorioCollapse" ng-app="myApp" ng-controller="myCtrl">
-    <section>
-      <table class="table">
+    <section class="container">
+      <table class="table margem">
         <thead>
           <tr>
             <th scope="col">Data</th>
+            <th scope="col">Nome Aluno</th>
             <th scope="col">Treino</th>
             <th scope="col">Calorias gastas</th>
             <th scope="col">Tempo total de treino</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <th scope="row" id="dataTablet"></th>
-            <td id="treinoTablet"></td>
-            <td id="caloriaGastaTablet"></td>
-            <td id="tempoTotalTablet"></td>
-          </tr>
+        <tbody id='tableId'>
         </tbody>
       </table>
     </section>
   </div>
-
-  <script>
-    function somenteNumeros(num) {
-      var er = /[^0-9.]/;
-      er.lastIndex = 0;
-      var campo = num;
-      if (er.test(campo.value)) {
-        campo.value = "";
-      }
-    }
-  </script>
 
   <footer>
     MarombaGym Fitness
