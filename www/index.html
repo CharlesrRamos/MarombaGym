@@ -18,18 +18,15 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
   <!-- FIM BOOTSTRAP -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
 
 </head>
 
 <body>
   <header>
-
     <img class="logo" src="./img/logogym.jpg" alt="Imagen da Academia" />
-
     <h2>Maromba GYM</h2>
-
     <p>Bem vindo a academia Maromba GYM</p>
 
     <div class="container align-items-center">
@@ -68,9 +65,10 @@
         </div>
         <div>
           <form>
-            <input name="peso" type='text' ng-model="peso" placeholder="Peso" maxlength="4" />
+            <input name="peso" ng-model="peso" placeholder="Peso" maxlength="4" onkeypress="$(this).mask('900.0')" />
 
-            <input name="altura" type='text' ng-model="altura" placeholder="Altura" maxlength="4" />
+            <input name="altura" ng-model="altura" placeholder="Altura" maxlength="4"
+              onkeypress="$(this).mask('9.00')" />
 
             <p>Resultado: {{msg}}</p>
 
@@ -162,8 +160,7 @@
               <option value="treino C">Treino C</option>
             </select>
             <input class="form-control" name="peso" ng-model="pesoCal" placeholder="Peso em kg" maxlength="4" />
-            <input class="form-control" name="tempo" ng-model="tempo" placeholder="Tempo de treino em minutos"
-              maxlength="4" />
+            <input class="form-control" name="tempo" ng-model="tempo" placeholder="Tempo em minutos" maxlength="4" />
             <p>Kcal gastas: {{caloriagasta}}</p>
             <button type="submit" ng-click="calculoCaloria()">Calcular</button>
           </form>
@@ -174,8 +171,8 @@
 
   <!-- Relatorio -->
   <div class="collapse" id="relatorioCollapse" ng-app="myApp" ng-controller="myCtrl">
-    <section>
-      <table class="table">
+    <section class="container">
+      <table class="table margem">
         <thead>
           <tr>
             <th scope="col">Data</th>
@@ -185,14 +182,7 @@
             <th scope="col">Tempo total de treino</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <th scope="row" id="dataTablet"></th>
-            <td id="nomeTablet"></td>
-            <td id="treinoTablet"></td>
-            <td id="caloriaGastaTablet"></td>
-            <td id="tempoTotalTablet"></td>
-          </tr>
+        <tbody id='tableId'>
         </tbody>
       </table>
     </section>
